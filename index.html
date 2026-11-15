@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Márcio Vilegas — AI Video Creator</title>
+<meta name="description" content="AI video creator & automation developer: series, characters, ads and social content produced with AI, in any format and any language.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0d12;--card:#141823;--line:#252b3a;--txt:#e8ecf4;--mut:#9aa3b5;--acc:#ff5a36;--acc2:#7c5cff;--ok:#2fd18b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.55 Inter,system-ui,Arial,sans-serif}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:5;background:rgba(11,13,18,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:12px}
+.brand{font-weight:800;letter-spacing:.3px}.brand span{color:var(--acc)}
+nav a{color:var(--mut);text-decoration:none;margin-left:16px;font-size:14px}nav a:hover{color:var(--txt)}
+.lang{border:1px solid var(--line);background:var(--card);color:var(--txt);border-radius:20px;padding:6px 12px;font:600 13px Inter;cursor:pointer}
+.hero{padding:64px 0 36px;display:grid;grid-template-columns:1fr 200px;gap:36px;align-items:center}
+.hero h1{font-size:44px;line-height:1.08;margin:0 0 14px;font-weight:800}
+.hero h1 b{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mut);font-size:18px;margin:0 0 22px}
+.hero img{width:200px;height:250px;object-fit:cover;border-radius:18px;border:2px solid var(--line)}
+.btns a{display:inline-block;margin:0 8px 8px 0;padding:11px 18px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px}
+.b1{background:var(--acc);color:#fff}.b2{border:1px solid var(--line);background:var(--card)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:10px 0 40px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.stat b{display:block;font-size:28px;font-weight:800}.stat span{color:var(--mut);font-size:14px}
+section{padding:26px 0}
+h2{font-size:28px;margin:0 0 6px}p.sub{color:var(--mut);margin:0 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.vid{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.thumb{position:relative;display:block;aspect-ratio:16/9;background:#000 center/cover no-repeat}
+.thumb.v{aspect-ratio:16/9;background:linear-gradient(135deg,#2a1f4d,#4d1f2a)}
+.thumb .play{position:absolute;inset:0;display:grid;place-items:center}
+.thumb .play i{width:58px;height:58px;border-radius:50%;background:rgba(0,0,0,.6);border:2px solid #fff;display:grid;place-items:center;font-style:normal;font-size:22px}
+.badge{position:absolute;left:10px;top:10px;background:var(--acc);color:#fff;font:700 12px Inter;padding:3px 8px;border-radius:6px}
+.views{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.75);font:700 13px Inter;padding:3px 8px;border-radius:6px}
+.ig{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:18px;font-weight:800;font-size:20px}
+.vb{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column}
+.vb h3{margin:0 0 6px;font-size:17px}
+.vb p{margin:0 0 10px;color:var(--mut);font-size:14px}
+.tags{margin-top:auto;display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:12px;border:1px solid var(--line);border-radius:20px;padding:2px 9px;color:#c9d1e3}
+.feat{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.f{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.f b{display:block;margin-bottom:6px;font-size:16px}.f p{margin:0;color:var(--mut);font-size:14px}
+.f .ic{font-size:24px;margin-bottom:8px}
+.pipe{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+.st{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;position:relative}
+.st:before{counter-increment:s;content:counter(s);position:absolute;top:-10px;left:12px;background:var(--acc2);color:#fff;font:800 12px Inter;width:24px;height:24px;border-radius:50%;display:grid;place-items:center}
+.st b{display:block;margin:6px 0 4px}.st p{margin:0;color:var(--mut);font-size:13.5px}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:14.5px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{width:30%;color:#cfd6e6;font-weight:600}td{color:var(--mut)}
+.contact{background:linear-gradient(135deg,#1b1530,#2a1418);border:1px solid var(--line);border-radius:18px;padding:28px;text-align:center;margin:30px 0 50px}
+.contact h2{margin-bottom:8px}.contact p{color:var(--mut);margin:0 0 18px}
+footer{color:var(--mut);font-size:13px;text-align:center;padding:0 0 30px}
+[data-l="pt"]{display:none}body.pt [data-l="pt"]{display:revert}body.pt [data-l="en"]{display:none}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:36px}.hero img{width:130px;height:160px;order:-1}.hero h1{font-size:32px}.stats{grid-template-columns:repeat(2,1fr)}nav{display:none}th{width:38%}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="brand">Márcio Vilegas <span>· AI Video</span></div>
+<nav><a href="#work"><span data-l="en">Work</span><span data-l="pt">Trabalhos</span></a><a href="#stack"><span data-l="en">Tech sheet</span><span data-l="pt">Ficha técnica</span></a><a href="#how"><span data-l="en">Workflow</span><span data-l="pt">Como faço</span></a><a href="#contact"><span data-l="en">Contact</span><span data-l="pt">Contato</span></a></nav>
+<button class="lang" onclick="tg()"><span data-l="en">🇧🇷 Português</span><span data-l="pt">🇺🇸 English</span></button></div></header>
+
+<div class="wrap">
+<div class="hero"><div>
+<h1 data-l="en">AI videos that <b>stop the scroll</b> — in any format, in any language.</h1>
+<h1 data-l="pt">Vídeos com IA que <b>param a rolagem</b> — em qualquer formato e em qualquer idioma.</h1>
+<p data-l="en">I write, generate, voice, edit and deliver complete videos made with artificial intelligence: series, characters, ads and social content for brands. 100% original material, no copyrighted footage, ready to post — at volume.</p>
+<p data-l="pt">Escrevo, gero, dou voz, edito e entrego vídeos completos feitos com inteligência artificial: séries, personagens, anúncios e conteúdo de redes sociais para marcas. Material 100% inédito, sem direitos autorais de terceiros, pronto para postar — em volume.</p>
+<div class="btns"><a class="b1" href="#work"><span data-l="en">See the work</span><span data-l="pt">Ver os trabalhos</span></a><a class="b2" href="https://wa.me/5573981021934" target="_blank">WhatsApp +55 73 98102-1934</a><a class="b2" href="https://www.linkedin.com/in/marcio-vilegas" target="_blank">LinkedIn</a></div>
+</div><img src="foto.jpg" alt="Márcio Vilegas"></div>
+
+<div class="stats">
+<div class="stat"><b>6,000+</b><span data-l="en">views on the AI series premiere</span><span data-l="pt">views na estreia da novela feita com IA</span></div>
+<div class="stat"><b>20k+</b><span data-l="en">views across the AI videos below</span><span data-l="pt">views somando os vídeos abaixo</span></div>
+<div class="stat"><b>9:16 · 16:9 · 1:1</b><span data-l="en">any format, any platform</span><span data-l="pt">qualquer formato, qualquer rede</span></div>
+<div class="stat"><b data-l="en">Any language</b><b data-l="pt">Qualquer idioma</b><span data-l="en">realistic AI voices + my own cloned voice</span><span data-l="pt">vozes realistas + minha própria voz clonada</span></div>
+</div>
+
+<section id="work">
+<h2 data-l="en">Selected work</h2><h2 data-l="pt">Trabalhos selecionados</h2>
+<p class="sub" data-l="en">Every frame below was generated with AI — no camera, no stock footage. Click to watch.</p>
+<p class="sub" data-l="pt">Cada quadro abaixo foi gerado com IA — sem câmera e sem banco de imagens. Clique para assistir.</p>
+<div class="grid">
+
+<div class="vid"><a class="thumb" target="_blank" href="https://youtu.be/-G3Yeim27oA" style="background-image:url(https://img.youtube.com/vi/-G3Yeim27oA/hqdefault.jpg)"><span class="badge">100% AI</span><span class="play"><i>▶</i></span><span class="views">6,000 views</span></a>
+<div class="vb"><h3 data-l="en">"Simples Amor" — AI soap opera, Ep. 1</h3><h3 data-l="pt">"Simples Amor" — novela com IA, Cap. 1</h3>
+<p data-l="en">A full Brazilian-style soap opera with recurring characters kept consistent across episodes, dialogue with lip sync, emotional score and subtitles.</p>
+<p data-l="pt">Novela completa no estilo brasileiro, com personagens consistentes entre capítulos, diálogos com lip sync, trilha emocional e legendas.</p>
+<div class="tags"><span>Google Flow · Veo 3</span><span>Lip sync</span><span>Fish Audio</span><span>16:9</span></div></div></div>
+
+<div class="vid"><a class="thumb" target="_blank" href="https://youtu.be/HzaNMQBoHjM" style="background-image:url(https://img.youtube.com/vi/HzaNMQBoHjM/hqdefault.jpg)"><span class="badge">100% AI</span><span class="play"><i>▶</i></span><span class="views">1,200 views</span></a>
+<div class="vb"><h3 data-l="en">"Simples Amor" — Ep. 2: the robbery</h3><h3 data-l="pt">"Simples Amor" — Cap. 2: o assalto</h3>
+<p data-l="en">Action scene, continuity of characters, wardrobe and locations from Ep. 1.</p><p data-l="pt">Cena de ação mantendo personagens, figurino e cenários do capítulo 1.</p>
+<div class="tags"><span>Character consistency</span><span>Storyboard</span><span>16:9</span></div></div></div>
+
+<div class="vid"><a class="thumb" target="_blank" href="https://youtu.be/9VzNfTiDiiA" style="background-image:url(https://img.youtube.com/vi/9VzNfTiDiiA/hqdefault.jpg)"><span class="badge">100% AI</span><span class="play"><i>▶</i></span><span class="views">619 views</span></a>
+<div class="vb"><h3 data-l="en">"Simples Amor" — Ep. 3: the almost-kiss</h3><h3 data-l="pt">"Simples Amor" — Cap. 3: o quase beijo</h3>
+<p data-l="en">Romance beats, close-ups and an ending hook to pull viewers into the next episode.</p><p data-l="pt">Momentos de romance, closes e gancho final para puxar o próximo capítulo.</p>
+<div class="tags"><span>Hooks</span><span>Original score</span></div></div></div>
+
+<div class="vid"><a class="thumb" target="_blank" href="https://youtu.be/VA04m-9mH9g" style="background-image:url(https://img.youtube.com/vi/VA04m-9mH9g/hqdefault.jpg)"><span class="badge">100% AI</span><span class="play"><i>▶</i></span><span class="views">401 views</span></a>
+<div class="vb"><h3 data-l="en">"Simples Amor" — Ep. 4: Lúcia's secret</h3><h3 data-l="pt">"Simples Amor" — Cap. 4: o segredo de Lúcia</h3>
+<p data-l="en">Multi-character scenes and a mystery subplot carried across the season.</p><p data-l="pt">Cenas com vários personagens e mistério que atravessa a temporada.</p>
+<div class="tags"><span>Multi-character</span><span>Series format</span></div></div></div>
+
+<div class="vid"><a class="thumb" target="_blank" href="https://youtu.be/pJq79qEZOTM" style="background-image:url(https://img.youtube.com/vi/pJq79qEZOTM/hqdefault.jpg)"><span class="badge">100% AI</span><span class="play"><i>▶</i></span></a>
+<div class="vb"><h3 data-l="en">"The humiliated pastry chef & the billionaire"</h3><h3 data-l="pt">"A confeiteira humilhada e o bilionário"</h3>
+<p data-l="en">6-minute micro-drama: 36 scenes, mood-based soundtrack (9 original tracks) and explanatory captions.</p><p data-l="pt">Micro-novela de 6 min: 36 cenas, trilha por clima (9 músicas próprias) e legendas explicativas.</p>
+<div class="tags"><span>Micro-drama</span><span>AI music</span><span>16:9</span></div></div></div>
+
+<div class="vid"><a class="thumb v" target="_blank" href="https://www.instagram.com/zoin_ai/reel/DfSiKijuXSS/"><span class="badge">100% AI</span><span class="ig">Zóin 🎮<br>"The job interview"</span><span class="views">2,090 views</span></a>
+<div class="vb"><h3 data-l="en">Zóin — original comedy character</h3><h3 data-l="pt">Zóin — personagem de comédia original</h3>
+<p data-l="en">A character I created from scratch: fixed identity sheet, new outfit every episode, inner-voice narration and captions. Instagram Reel.</p>
+<p data-l="pt">Personagem criado do zero: ficha de identidade, figurino novo a cada episódio, narração de pensamento e legendas. Reel do Instagram.</p>
+<div class="tags"><span>Character IP</span><span>9:16 Reels</span><span>Comedy</span></div></div></div>
+
+<div class="vid"><a class="thumb v" target="_blank" href="https://www.instagram.com/zoin_ai/reel/DfNuylYtPts/"><span class="badge">100% AI</span><span class="ig">Zóin 😅<br>"What goes through an unemployed mind"</span><span class="views">1,375 views</span></a>
+<div class="vb"><h3 data-l="en">Zóin — relatable humor</h3><h3 data-l="pt">Zóin — humor do dia a dia</h3>
+<p data-l="en">Fast cuts, punchlines on screen and a strong opening hook.</p><p data-l="pt">Cortes rápidos, piadas na tela e gancho forte na abertura.</p>
+<div class="tags"><span>Hook in 2s</span><span>Sound design</span></div></div></div>
+
+<div class="vid"><a class="thumb v" target="_blank" href="https://www.instagram.com/zoin_ai/reel/Dezujafs11b/"><span class="badge">100% AI</span><span class="ig">Zóin 🧳<br>"Packed his bags and left…"</span><span class="views">1,130 views</span></a>
+<div class="vb"><h3 data-l="en">Zóin — short story arc</h3><h3 data-l="pt">Zóin — mini história</h3>
+<p data-l="en">Beginning, twist and ending in under a minute, with the same character in every shot.</p><p data-l="pt">Começo, virada e final em menos de um minuto, com o mesmo personagem em todas as cenas.</p>
+<div class="tags"><span>Storytelling</span><span>Consistency</span></div></div></div>
+
+<div class="vid"><a class="thumb v" target="_blank" href="https://www.instagram.com/zoin_ai/reel/DfYBGM4JbDG/"><span class="badge">100% AI</span><span class="ig">Zóin 🪁<br>"The kite hero"</span></a>
+<div class="vb"><h3 data-l="en">Zóin — the kite hero</h3><h3 data-l="pt">Zóin — o herói da pipa</h3>
+<p data-l="en">Physical comedy with special effects generated by AI.</p><p data-l="pt">Comédia física com efeitos especiais gerados por IA.</p>
+<div class="tags"><span>VFX by AI</span><span>9:16</span></div></div></div>
+
+<div class="vid"><a class="thumb" target="_blank" href="https://youtube.com/shorts/7P0H6mKLFi0" style="background-image:url(https://img.youtube.com/vi/7P0H6mKLFi0/hqdefault.jpg)"><span class="badge">100% AI</span><span class="play"><i>▶</i></span><span class="views">3,100 views</span></a>
+<div class="vb"><h3 data-l="en">"The terror next door" — horror short</h3><h3 data-l="pt">"O terror da casa ao lado" — conto de terror</h3>
+<p data-l="en">Dark visual style, tension-building narration and sound design. YouTube Short.</p><p data-l="pt">Visual sombrio, narração que constrói tensão e desenho de som. YouTube Shorts.</p>
+<div class="tags"><span>Horror</span><span>Narration</span><span>9:16</span></div></div></div>
+
+<div class="vid"><a class="thumb" target="_blank" href="https://youtube.com/shorts/wEIUz573-T0" style="background-image:url(https://img.youtube.com/vi/wEIUz573-T0/hqdefault.jpg)"><span class="badge">100% AI</span><span class="play"><i>▶</i></span><span class="views">1,500 views</span></a>
+<div class="vb"><h3 data-l="en">"The horror pool case" — told by a victim</h3><h3 data-l="pt">"O caso da piscina do horror" — contado por uma vítima</h3>
+<p data-l="en">First-person storytelling with a hook in the first second.</p><p data-l="pt">Narrativa em primeira pessoa com gancho no primeiro segundo.</p>
+<div class="tags"><span>Retention</span><span>Shorts</span></div></div></div>
+
+<div class="vid"><a class="thumb" target="_blank" href="https://youtu.be/j2-xrenJqhM" style="background-image:url(https://img.youtube.com/vi/j2-xrenJqhM/hqdefault.jpg)"><span class="badge" style="background:#7c5cff">AI-assisted edit</span><span class="play"><i>▶</i></span><span class="views">3,200 views</span></a>
+<div class="vb"><h3 data-l="en">Celebrity news edit — automated motion design</h3><h3 data-l="pt">Edição de notícia de celebridade — motion design automatizado</h3>
+<p data-l="en">Edited with Claude + HyperFrames: every spoken word becomes an animated title or icon, picture-in-picture that changes shape and position.</p>
+<p data-l="pt">Editado com Claude + HyperFrames: cada palavra falada vira título ou ícone animado, com picture-in-picture que muda de forma e lugar.</p>
+<div class="tags"><span>Claude Code</span><span>HyperFrames</span><span>16:9</span></div></div></div>
+
+<div class="vid"><a class="thumb" target="_blank" href="https://youtu.be/F5p8ycL14rg" style="background-image:url(https://img.youtube.com/vi/F5p8ycL14rg/hqdefault.jpg)"><span class="badge" style="background:#7c5cff">AI-assisted edit</span><span class="play"><i>▶</i></span><span class="views">621 views</span></a>
+<div class="vb"><h3 data-l="en">"Kinetic" news edit</h3><h3 data-l="pt">Notícia em edição "cinética"</h3>
+<p data-l="en">Same automated style applied to a new story in under a day — the template scales.</p><p data-l="pt">O mesmo estilo automatizado aplicado a outra história em menos de um dia — o modelo escala.</p>
+<div class="tags"><span>Templates</span><span>Fast turnaround</span></div></div></div>
+
+</div></section>
+
+<section id="stack">
+<h2 data-l="en">Tech sheet</h2><h2 data-l="pt">Ficha técnica</h2>
+<p class="sub" data-l="en">The tools I use every day — and how they fit together.</p><p class="sub" data-l="pt">As ferramentas que uso todos os dias — e como elas se encaixam.</p>
+<table>
+<tr><th data-l="en">Video generation</th><th data-l="pt">Geração de vídeo</th><td>Google Flow (Veo 3, Omni) · Seedance · Kling · Higgsfield · <b>MiniMax H3</b> <span data-l="en">running on a dedicated GPU (RTX 5090 / RTX PRO 6000) on my own cloud server</span><span data-l="pt">rodando em GPU dedicada (RTX 5090 / RTX PRO 6000) num servidor próprio na nuvem</span></td></tr>
+<tr><th data-l="en">Production capacity</th><th data-l="pt">Capacidade de produção</th><td data-l="en">Scaled production setup on Google Flow — dozens of finished videos per day when needed.</td><td data-l="pt">Estrutura de produção em escala no Google Flow — dezenas de vídeos prontos por dia, se necessário.</td></tr>
+<tr><th data-l="en">Images & characters</th><th data-l="pt">Imagens e personagens</th><td data-l="en">ChatGPT image generation, character identity sheets, pose sheets and storyboards to keep the same face and outfit across every scene. Canva for brand assets.</td><td data-l="pt">Geração de imagens no ChatGPT, fichas de identidade e de poses dos personagens e storyboards para manter o mesmo rosto e figurino em todas as cenas. Canva para peças de marca.</td></tr>
+<tr><th data-l="en">Voices</th><th data-l="pt">Vozes</th><td data-l="en">Realistic AI voices with emotion control (Fish Audio), lip sync on generated characters, <b>my own voice cloned into other languages</b>, multi-voice dialogue.</td><td data-l="pt">Vozes de IA realistas com controle de emoção (Fish Audio), lip sync nos personagens gerados, <b>minha própria voz clonada em outros idiomas</b>, diálogos com várias vozes.</td></tr>
+<tr><th data-l="en">Languages</th><th data-l="pt">Idiomas</th><td data-l="en">Videos in any language — Portuguese, English, Spanish, Italian and more — with matching voice and subtitles.</td><td data-l="pt">Vídeos em qualquer idioma — português, inglês, espanhol, italiano e outros — com voz e legenda no mesmo idioma.</td></tr>
+<tr><th data-l="en">Editing</th><th data-l="pt">Edição</th><td data-l="en"><b>Claude Code (paid plan) + HyperFrames</b> for programmatic editing and motion graphics, plus <b>a video editor I built myself</b> for my own workflow: live preview, timeline, and AI-assisted edits rendered in seconds.</td><td data-l="pt"><b>Claude Code (plano pago) + HyperFrames</b> para edição programada e motion graphics, e <b>um editor de vídeo criado por mim</b> para o meu fluxo: prévia ao vivo, linha do tempo e edições com IA renderizadas em segundos.</td></tr>
+<tr><th data-l="en">Music & sound</th><th data-l="pt">Música e som</th><td data-l="en">Original soundtracks generated per scene mood (Google Flow Music), a library of royalty-free sound effects, loudness-balanced mix. Zero copyright claims.</td><td data-l="pt">Trilhas próprias geradas por clima de cena (Google Flow Music), biblioteca de efeitos sonoros livres de direitos, mixagem com volume equilibrado. Zero problemas de direitos autorais.</td></tr>
+<tr><th data-l="en">Captions & hooks</th><th data-l="pt">Legendas e ganchos</th><td data-l="en">Word-accurate subtitles, on-screen titles, a hook in the first seconds and an ending that drives the next action (follow, comment, buy, next episode).</td><td data-l="pt">Legendas palavra por palavra, títulos na tela, gancho nos primeiros segundos e final que leva à próxima ação (seguir, comentar, comprar, próximo episódio).</td></tr>
+<tr><th data-l="en">Formats</th><th data-l="pt">Formatos</th><td>9:16 Reels/Shorts/TikTok · 16:9 YouTube · 1:1 · <span data-l="en">ads, series, explainers, animation, realistic characters</span><span data-l="pt">anúncios, séries, explicativos, animação, personagens realistas</span></td></tr>
+<tr><th data-l="en">Automation</th><th data-l="pt">Automação</th><td data-l="en">Python pipelines that turn scripts or news into finished videos (my product <a href="https://www.criandovideos.com.br" target="_blank">Newsmaker</a>), batch rendering and publishing.</td><td data-l="pt">Pipelines em Python que transformam roteiros ou notícias em vídeos prontos (meu produto <a href="https://www.criandovideos.com.br" target="_blank">Newsmaker</a>), renderização e publicação em lote.</td></tr>
+</table></section>
+
+<section id="how">
+<h2 data-l="en">How I deliver a video</h2><h2 data-l="pt">Como entrego um vídeo</h2>
+<p class="sub" data-l="en">From brief to post-ready file, without a camera.</p><p class="sub" data-l="pt">Do briefing ao arquivo pronto para postar, sem câmera.</p>
+<div class="pipe">
+<div class="st"><b data-l="en">Brief & hook</b><b data-l="pt">Briefing e gancho</b><p data-l="en">Your script or my idea, built around a strong first-second hook.</p><p data-l="pt">Seu roteiro ou minha ideia, com gancho forte no primeiro segundo.</p></div>
+<div class="st"><b data-l="en">Characters & scenes</b><b data-l="pt">Personagens e cenas</b><p data-l="en">Identity sheets and storyboard so the product and people stay consistent.</p><p data-l="pt">Fichas e storyboard para produto e pessoas ficarem consistentes.</p></div>
+<div class="st"><b data-l="en">Generation</b><b data-l="pt">Geração</b><p data-l="en">Shots generated in Veo, Seedance, Kling or MiniMax; best takes selected.</p><p data-l="pt">Cenas geradas no Veo, Seedance, Kling ou MiniMax; escolho as melhores.</p></div>
+<div class="st"><b data-l="en">Voice & music</b><b data-l="pt">Voz e música</b><p data-l="en">Realistic voice in the target language, original score and SFX.</p><p data-l="pt">Voz realista no idioma certo, trilha própria e efeitos.</p></div>
+<div class="st"><b data-l="en">Edit & captions</b><b data-l="pt">Edição e legenda</b><p data-l="en">Claude + HyperFrames + my own editor; animated captions and titles.</p><p data-l="pt">Claude + HyperFrames + meu editor; legendas e títulos animados.</p></div>
+<div class="st"><b data-l="en">Delivery</b><b data-l="pt">Entrega</b><p data-l="en">Every format you need, fast revisions, consistent daily output.</p><p data-l="pt">Todos os formatos que você precisar, revisões rápidas, produção diária constante.</p></div>
+</div></section>
+
+<section>
+<h2 data-l="en">Also for brands</h2><h2 data-l="pt">Também para marcas</h2>
+<div class="feat" style="margin-top:16px">
+<div class="f"><div class="ic">📱</div><b data-l="en">Social media for brands</b><b data-l="pt">Redes sociais para marcas</b><p data-l="en">I set up and run brand profiles: content plan, AI videos, captions and posting routine.</p><p data-l="pt">Crio e cuido de perfis de marcas: plano de conteúdo, vídeos com IA, legendas e rotina de postagens.</p></div>
+<div class="f"><div class="ic">🎯</div><b data-l="en">Ads that convert</b><b data-l="pt">Anúncios que convertem</b><p data-l="en">Short ads with the real product placed into generated scenes, built to run as paid media.</p><p data-l="pt">Anúncios curtos com o produto real dentro das cenas geradas, prontos para tráfego pago.</p></div>
+<div class="f"><div class="ic">🌍</div><b data-l="en">One video, many markets</b><b data-l="pt">Um vídeo, vários mercados</b><p data-l="en">The same piece re-voiced and re-captioned for each country.</p><p data-l="pt">A mesma peça redublada e relegendada para cada país.</p></div>
+<div class="f"><div class="ic">⚡</div><b data-l="en">Volume without losing quality</b><b data-l="pt">Volume sem perder qualidade</b><p data-l="en">Templates + automation = consistent output every day.</p><p data-l="pt">Modelos + automação = produção constante todos os dias.</p></div>
+</div></section>
+
+<div class="contact" id="contact">
+<h2 data-l="en">Let's make your next video</h2><h2 data-l="pt">Vamos fazer o seu próximo vídeo</h2>
+<p data-l="en">Márcio Vilegas · Bahia, Brazil · remote, any time zone · Portuguese (native), English and Italian (conversational)</p>
+<p data-l="pt">Márcio Vilegas · Bahia, Brasil · remoto, qualquer fuso · Português (nativo), inglês e italiano (conversação)</p>
+<div class="btns"><a class="b1" href="https://wa.me/5573981021934" target="_blank">WhatsApp +55 73 98102-1934</a><a class="b2" href="mailto:musicvil@gmail.com">musicvil@gmail.com</a><a class="b2" href="https://www.linkedin.com/in/marcio-vilegas" target="_blank">LinkedIn</a><a class="b2" href="https://github.com/MARCIOVILEGAS" target="_blank">GitHub</a></div>
+</div>
+<footer>© 2026 Márcio Vilegas</footer>
+</div>
+<script>
+function tg(){document.body.classList.toggle('pt');document.documentElement.lang=document.body.classList.contains('pt')?'pt-BR':'en';try{localStorage.setItem('l',document.body.classList.contains('pt')?'pt':'en')}catch(e){}}
+try{var l=localStorage.getItem('l')||((navigator.language||'').startsWith('pt')?'pt':'en');if(l==='pt')document.body.classList.add('pt')}catch(e){}
+if(location.hash==='#pt')document.body.classList.add('pt');if(location.hash==='#en')document.body.classList.remove('pt');
+</script>
+</body></html>
